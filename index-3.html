@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Website</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f3f6fb;
+    }
+    header {
+      background: #123b70;
+      color: white;
+      padding: 28px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; font-size: 2rem; }
+    header p { margin: 0; }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 12px;
+      background: #0b2850;
+    }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    .hero, .card {
+      background: white;
+      padding: 24px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+    .hero { text-align: center; }
+    .hero h2 { color: #123b70; margin-top: 0; }
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #147d46;
+      color: white;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .button:hover { background: #0e6035; }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+    .service {
+      background: #eef4ff;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 12px;
+      background: #123b70;
+      color: white;
+      margin-top: 28px;
+    }
+    #message { font-weight: bold; color: #147d46; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>मेरी पहली वेबसाइट</h1>
+    <p>HTML, CSS और JavaScript सीखने का मेरा पहला प्रोजेक्ट</p>
+  </header>
+
+  <nav>
+    <a href="#home">होम</a>
+    <a href="#about">हमारे बारे में</a>
+    <a href="#services">सेवाएँ</a>
+    <a href="#contact">संपर्क</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <h2>आपका स्वागत है!</h2>
+      <p>यह मेरी पहली वेबसाइट है। मैं इसे बनाकर वेब डिजाइनिंग सीख रहा/रही हूँ।</p>
+      <button class="button" id="welcomeButton">यहाँ क्लिक करें</button>
+      <p id="message" aria-live="polite"></p>
+    </section>
+
+    <section class="card" id="about">
+      <h2>हमारे बारे में</h2>
+      <p>इस जगह पर आप अपने बारे में या अपने व्यवसाय के बारे में जानकारी लिख सकते हैं। वेबसाइट की सामग्री बदलने के लिए इस HTML फाइल को Notepad में खोलें और टेक्स्ट बदल दें।</p>
+    </section>
+
+    <section class="card" id="services">
+      <h2>हमारी सेवाएँ</h2>
+      <div class="services">
+        <div class="service">
+          <h3>सेवा नंबर 1</h3>
+          <p>यहाँ अपनी पहली सेवा का विवरण लिखें।</p>
+        </div>
+        <div class="service">
+          <h3>सेवा नंबर 2</h3>
+          <p>यहाँ अपनी दूसरी सेवा का विवरण लिखें।</p>
+        </div>
+        <div class="service">
+          <h3>सेवा नंबर 3</h3>
+          <p>यहाँ अपनी तीसरी सेवा का विवरण लिखें।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>संपर्क करें</h2>
+      <p>यहाँ अपना ईमेल या व्यवसाय का संपर्क विवरण बाद में जोड़ सकते हैं। अभी कोई निजी जानकारी डालना जरूरी नहीं है।</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> मेरी पहली वेबसाइट | सीखें और आगे बढ़ें</p>
+  </footer>
+
+  <script>
+    document.getElementById("welcomeButton").addEventListener("click", function () {
+      document.getElementById("message").textContent = "बहुत बढ़िया! आपका JavaScript बटन काम कर रहा है।";
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
