@@ -1,111 +1,63 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechSathi</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fff3cd;
-            color: #222;
-        }
-
-        header {
-            background: #123b70;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        nav {
-            background: #08264b;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 12px;
-        }
-
-        section {
-            background: white;
-            margin: 20px auto;
-            padding: 25px;
-            max-width: 800px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            color: #123b70;
-        }
-
-        button {
-            background: #123b70;
-            color: white;
-            padding: 12px 22px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        footer {
-            background: #08264b;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="TechSathi JanSeva Kendra — ऑनलाइन सेवाओं की जानकारी और सहायता।">
+<title>TechSathi JanSeva Kendra</title>
+<style>
+:root{--blue:#123b67;--deep:#092846;--cream:#fff6d8;--ink:#1e293b;--muted:#5b6675;--line:#dce5ee}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;font-family:Arial,"Noto Sans Devanagari",Mangal,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}a{color:inherit}
+.top{position:sticky;top:0;z-index:5;background:var(--deep);color:white}.nav{max-width:1100px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;text-decoration:none}.logo{background:white;color:var(--blue);border-radius:12px;padding:8px 11px;font-weight:bold;font-size:20px}.brand strong{display:block;font-size:18px}.brand small{color:#d4e5f6}nav{display:flex;flex-wrap:wrap;gap:5px}nav a{color:white;text-decoration:none;padding:7px 9px;border-radius:8px;font-size:14px}nav a:hover{background:#244968}
+.hero{background:linear-gradient(130deg,var(--blue),#1e66a5);color:white;padding:55px 18px}.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:25px;align-items:center}h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:12px 0}.hero p{font-size:18px;color:#eaf3fc}.pill{border:1px solid #aac9e5;border-radius:99px;padding:4px 12px;font-size:13px}.hero-box{background:#ffffff18;border:1px solid #ffffff44;border-radius:18px;padding:20px}.hero-box h2{margin-top:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;border:0;border-radius:9px;padding:10px 15px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:14px}.light{background:white;color:var(--blue)}.green{background:#168a52;color:white}.primary{background:var(--blue);color:white}.outline{border:1px solid var(--line);background:white;color:var(--blue)}
+.container{max-width:1100px;margin:auto;padding:38px 18px}.heading h2{color:var(--blue);font-size:30px;margin:0 0 5px}.heading p,.card p,.panel p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card,.panel,.contact-card{background:white;border:1px solid #e1e8ef;border-radius:15px;padding:20px;box-shadow:0 8px 24px #0928460c}.ico{font-size:26px;background:#e9f2fb;border-radius:12px;width:48px;height:48px;display:grid;place-items:center}.card h3{color:var(--blue);margin:10px 0 4px}.card p{font-size:14px;min-height:48px}.card button{width:100%}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.panel h2{color:var(--blue);margin-top:0}form{display:grid;gap:13px}label{display:block;font-weight:bold;font-size:14px;margin-bottom:4px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}textarea{min-height:90px}.check{display:flex;gap:9px;align-items:flex-start;font-weight:normal}.check input{width:auto;margin-top:6px}.hint{font-size:12px;color:var(--muted)}.notice{background:#fff8e6;border:1px solid #efd79b;border-radius:10px;padding:13px;color:#624b14;font-size:13px}.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.contact-card strong{color:var(--blue)}footer{background:var(--deep);color:#e7eef7;text-align:center;padding:24px 18px}footer p{margin:5px}.small{font-size:12px;color:#c7d5e5}
+@media(max-width:800px){.hero-inner,.twocol{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.grid,.contact-grid{grid-template-columns:1fr}.container{padding:28px 14px}.nav{padding:10px 14px}nav a{font-size:13px;padding:6px}}
+</style>
 </head>
-
 <body>
-
-    <header>
-        <h1>TechSathi में आपका स्वागत है</h1>
-        <p>सीखें, समझें और अपनी वेबसाइट बनाएँ।</p>
-    </header>
-
-    <nav>
-        <a href="#home">होम</a>
-        <a href="#about">हमारे बारे में</a>
-        <a href="#services">हमारी सेवाएँ</a>
-        <a href="#contact">संपर्क</a>
-    </nav>
-
-    <section id="home">
-        <h2>होम पेज</h2>
-        <p>यह मेरी पहली वेबसाइट है। मैं HTML, CSS और JavaScript सीख रहा हूँ।</p>
-    </section>
-
-    <section id="about">
-        <h2>हमारे बारे में</h2>
-        <p>इस वेबसाइट को मैंने वेब डेवलपमेंट सीखने के लिए बनाया है।</p>
-    </section>
-
-    <section id="services">
-        <h2>हमारी सेवाएँ</h2>
-        <p>यहाँ भविष्य में अपनी सेवाओं की जानकारी जोड़ सकते हैं।</p>
-        <button onclick="showMessage()">यहाँ क्लिक करें</button>
-    </section>
-
-    <section id="contact">
-        <h2>संपर्क करें</h2>
-        <p>हमारी संपर्क जानकारी यहाँ दिखाई जाएगी।</p>
-    </section>
-
-    <footer>
-        <p>मेरी पहली वेबसाइट | 2026</p>
-    </footer>
-
-    <script>
-        function showMessage() {
-            alert("बधाई हो! आपका बटन सही काम कर रहा है।");
-        }
-    </script>
-
+<div class="top"><div class="nav">
+<a class="brand" href="#home"><span class="logo">TS</span><span><strong>TechSathi</strong><small>JanSeva Kendra</small></span></a>
+<nav aria-label="मुख्य मेन्यू"><a href="#home">होम</a><a href="#services">हमारी सेवाएँ</a><a href="#how">कैसे काम करता है</a><a href="#apply">आवेदन करें</a><a href="#contact">संपर्क</a></nav>
+</div></div>
+<header class="hero" id="home"><div class="hero-inner"><div><span class="pill">आपका डिजिटल सेवा साथी</span><h1>TechSathi JanSeva Kendra</h1><p>सरकारी दस्तावेज़ों और ऑनलाइन सेवाओं के लिए जानकारी तथा आवेदन में सहायता — एक ही जगह।</p><div class="actions"><a class="btn light" href="#services">सेवाएँ देखें ↓</a><a class="btn green" href="#apply">WhatsApp पर पूछें</a></div></div><div class="hero-box"><h2>हम आपकी कैसे मदद कर सकते हैं?</h2><ul><li>सेवा चुनकर अनुरोध भेजें</li><li>कॉल या WhatsApp से संपर्क करें</li><li>शुल्क और जरूरी दस्तावेज़ पहले जानें</li><li>आवेदन की स्थिति के लिए पूछें</li></ul></div></div></header>
+<main>
+<section class="container" id="services"><div class="heading"><h2>हमारी सेवाएँ</h2><p>सेवा चुनें। उपलब्धता, पात्रता और शुल्क की पुष्टि पहले की जाएगी।</p></div><div class="grid">
+<article class="card"><div class="ico">💚</div><h3>आयुष्मान कार्ड</h3><p>पात्रता जाँच और कार्ड प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('आयुष्मान कार्ड')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🏦</div><h3>PF निकालना</h3><p>EPFO/PF क्लेम प्रक्रिया में सहायता।</p><button class="btn primary" onclick="chooseService('PF निकालना')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🔐</div><h3>PF KYC</h3><p>PF खाते की KYC प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('PF KYC')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🪪</div><h3>PAN कार्ड</h3><p>नया PAN और उपलब्ध सुधार/अपडेट में सहायता।</p><button class="btn primary" onclick="chooseService('PAN कार्ड बनवाना या अपडेट')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">📱</div><h3>आधार सेवाएँ</h3><p>मोबाइल/पता अपडेट की प्रक्रिया और अधिकृत केंद्र की जानकारी।</p><button class="btn primary" onclick="chooseService('आधार मोबाइल/पता अपडेट')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🗳️</div><h3>वोटर ID कार्ड</h3><p>नया पंजीकरण और उपलब्ध सुधार प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('वोटर ID कार्ड')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">👷</div><h3>ई-श्रम कार्ड</h3><p>पात्रता और पंजीकरण प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('ई-श्रम कार्ड')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🏛️</div><h3>बैंक खाता खोलना</h3><p>उपलब्ध बैंकिंग सेवा के नियमों के अनुसार जानकारी।</p><button class="btn primary" onclick="chooseService('बैंक खाता खोलना')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">💳</div><h3>APS सेवा</h3><p>APS सेवा की उपलब्धता और प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('APS सेवा')">इस सेवा के लिए आवेदन</button></article>
+<article class="card"><div class="ico">🖨️</div><h3>प्रिंटिंग और स्कैनिंग</h3><p>यदि केंद्र पर उपलब्ध हो, तो जानकारी के लिए अनुरोध करें।</p><button class="btn primary" onclick="chooseService('प्रिंटिंग और स्कैनिंग')">इस सेवा के लिए आवेदन</button></article>
+</div></section>
+<section class="container" id="how"><div class="twocol"><div class="panel"><h2>सेवा लेने का तरीका</h2><ol><li>अपनी सेवा चुनें।</li><li>नीचे फ़ॉर्म में संपर्क जानकारी भरें।</li><li>WhatsApp पर अनुरोध भेजें या कॉल करें।</li><li>सेवा, दस्तावेज़ और शुल्क की पुष्टि करें।</li></ol></div><div class="panel"><h2>ऑनलाइन भुगतान</h2><p>भुगतान सुविधा सुरक्षित भुगतान सेवा जुड़ने के बाद सक्रिय होगी। अभी वेबसाइट पर भुगतान नहीं लिया जा रहा है।</p><button class="btn outline" onclick="alert('ऑनलाइन भुगतान अभी सक्रिय नहीं है। कृपया केंद्र से शुल्क और भुगतान तरीका सत्यापित करें।')">भुगतान सुविधा जल्द उपलब्ध होगी</button></div></div></section>
+<section class="container" id="apply"><div class="twocol"><div><div class="heading"><h2>ऑनलाइन सेवा अनुरोध</h2><p>फ़ॉर्म संदेश तैयार करके WhatsApp में खोलेगा। डेटा वेबसाइट पर सेव नहीं होता।</p></div><div class="notice">सुरक्षा: यहाँ आधार/PAN नंबर, बैंक विवरण, पासवर्ड या OTP न लिखें। संवेदनशील दस्तावेज़ केवल अधिकृत और सुरक्षित प्रक्रिया से दें।</div></div><div class="panel"><form id="requestForm">
+<div><label for="service">कौन-सी सेवा चाहिए? *</label><select id="service" required><option value="">सेवा चुनें</option><option>आयुष्मान कार्ड</option><option>PF निकालना</option><option>PF KYC</option><option>PAN कार्ड बनवाना या अपडेट</option><option>आधार मोबाइल/पता अपडेट</option><option>वोटर ID कार्ड</option><option>ई-श्रम कार्ड</option><option>बैंक खाता खोलना</option><option>APS सेवा</option><option>प्रिंटिंग और स्कैनिंग</option><option>अन्य सेवा</option></select></div>
+<div><label for="name">आपका नाम *</label><input id="name" maxlength="80" required autocomplete="name" placeholder="अपना नाम लिखें"></div>
+<div><label for="phone">आपका मोबाइल नंबर *</label><input id="phone" type="tel" inputmode="numeric" pattern="[0-9+\-\s]{10,16}" maxlength="16" required autocomplete="tel" placeholder="मोबाइल नंबर"></div>
+<div><label for="details">सामान्य जानकारी</label><textarea id="details" maxlength="500" placeholder="आपको किस तरह की सहायता चाहिए? संवेदनशील नंबर न लिखें।"></textarea></div>
+<label class="check"><input type="checkbox" id="consent" required><span>मैं सहमत हूँ कि मेरे संपर्क विवरण का उपयोग इस अनुरोध के संबंध में मुझसे संपर्क करने के लिए किया जाए। *</span></label>
+<button class="btn green" type="submit">WhatsApp पर अनुरोध भेजें</button><p class="hint">WhatsApp खुलने पर संदेश जाँचें और खुद Send दबाएँ।</p>
+</form></div></div></section>
+<section class="container" id="contact"><div class="heading"><h2>संपर्क करें</h2><p>नीचे दिए गए placeholder नंबर को अपने सही नंबर से बदलने के बाद कॉल/WhatsApp बटन सक्रिय होंगे।</p></div><div class="contact-grid"><div class="contact-card"><strong>📞 फोन पर बात करें</strong><p>सेवा और शुल्क पूछें।</p><a class="btn primary" href="#" onclick="return contactCall(event)">कॉल करें</a></div><div class="contact-card"><strong>💬 WhatsApp</strong><p>संदेश भेजें।</p><a class="btn green" href="#" onclick="return contactWhatsApp(event)">WhatsApp करें</a></div><div class="contact-card"><strong>✉️ ईमेल</strong><p>ईमेल पता जोड़ने के बाद ईमेल से संपर्क करें।</p><a class="btn outline" href="#" onclick="return contactEmail(event)">ईमेल करें</a></div></div></section>
+</main>
+<footer><p><strong>TechSathi JanSeva Kendra</strong></p><p>आपका डिजिटल सेवा साथी</p><p class="small">यह स्वतंत्र सहायता वेबसाइट है, किसी सरकारी विभाग की आधिकारिक वेबसाइट नहीं। सरकारी सेवाओं की पात्रता, शुल्क और उपलब्धता संबंधित अधिकृत विभाग से सत्यापित करें।</p><p class="small">© <span id="year"></span> TechSathi JanSeva Kendra</p></footer>
+<script>
+/* सेटिंग: WhatsApp नंबर देश कोड सहित केवल अंकों में लिखें, जैसे 91XXXXXXXXXX। फोन नंबर +91XXXXXXXXXX जैसे फॉर्मेट में रखें। */
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const PHONE_NUMBER = "+91XXXXXXXXXX";
+const CONTACT_EMAIL = "";
+document.getElementById("year").textContent = new Date().getFullYear();
+function waReady(){return /^\d{10,15}$/.test(WHATSAPP_NUMBER)&&!WHATSAPP_NUMBER.includes("X")}
+function phoneReady(){return /^\+?\d{10,15}$/.test(PHONE_NUMBER)&&!PHONE_NUMBER.includes("X")}
+function chooseService(s){document.getElementById("service").value=s;document.getElementById("apply").scrollIntoView({behavior:"smooth"});document.getElementById("name").focus({preventScroll:true})}
+function contactCall(e){e.preventDefault();if(!phoneReady()){alert("कॉल चालू करने के लिए PHONE_NUMBER में अपना सही फोन नंबर डालें।");return false}location.href="tel:"+PHONE_NUMBER;return false}
+function contactWhatsApp(e){e.preventDefault();if(!waReady()){alert("WhatsApp चालू करने के लिए WHATSAPP_NUMBER में देश कोड सहित अपना नंबर डालें।");return false}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("नमस्ते, मुझे TechSathi JanSeva Kendra की सेवाओं की जानकारी चाहिए।"),"_blank","noopener");return false}
+function contactEmail(e){e.preventDefault();if(!CONTACT_EMAIL.includes("@")){alert("ईमेल चालू करने के लिए CONTACT_EMAIL में अपना ईमेल पता डालें।");return false}location.href="mailto:"+CONTACT_EMAIL;return false}
+document.getElementById("requestForm").addEventListener("submit",function(e){e.preventDefault();if(!this.reportValidity())return;if(!waReady()){alert("फ़ॉर्म तैयार है, लेकिन अनुरोध भेजने के लिए पहले WHATSAPP_NUMBER में अपना सही नंबर डालना होगा। अभी जानकारी कहीं सेव नहीं हुई है।");return}const msg=["नमस्ते, मुझे TechSathi JanSeva Kendra से सेवा चाहिए।","सेवा: "+document.getElementById("service").value,"नाम: "+document.getElementById("name").value.trim(),"मोबाइल: "+document.getElementById("phone").value.trim(),document.getElementById("details").value.trim()?"विवरण: "+document.getElementById("details").value.trim():"","कृपया सेवा की उपलब्धता और शुल्क बताएं।"].filter(Boolean).join("\n");window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener")});
+</script>
 </body>
 </html>
