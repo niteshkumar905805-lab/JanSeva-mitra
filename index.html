@@ -114,9 +114,15 @@ function phoneReady(){return /^\+?\d{10,15}$/.test(PHONE_NUMBER)&&!PHONE_NUMBER.
 function chooseService(s){document.getElementById("service").value=s;document.getElementById("apply").scrollIntoView({behavior:"smooth"});document.getElementById("name").focus({preventScroll:true})}
 function contactCall(e){e.preventDefault();if(!phoneReady()){alert("कॉल चालू करने के लिए PHONE_NUMBER में अपना सही फोन नंबर डालें।");return false}location.href="tel:"+PHONE_NUMBER;return false}
 function contactWhatsApp(e){e.preventDefault();if(!waReady()){alert("WhatsApp चालू करने के लिए WHATSAPP_NUMBER में देश कोड सहित अपना नंबर डालें।");return false}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("नमस्ते, मुझे TechSathi JanSeva Kendra की सेवाओं की जानकारी चाहिए।"),"_blank","noopener");return false}
-function contactEmail(e){e.preventDefault();if(!CONTACT_EMAIL.includes("@")){alert("ईमेल चालू करने के लिए CONTACT_EMAIL में अपना ईमेल पता डालें।");return false}location.href="mailto:"+CONTACT_EMAIL;return false}
-document.getElementById("requestForm").addEventListener("submit",function(e){e.preventDefault();if(!this.reportValidity())return;if(!waReady()){alert("फ़ॉर्म तैयार है, लेकिन अनुरोध भेजने के लिए पहले WHATSAPP_NUMBER में अपना सही नंबर डालना होगा। अभी जानकारी कहीं सेव नहीं हुई है।");return}const msg=["नमस्ते, मुझे TechSathi JanSeva Kendra से सेवा चाहिए।","सेवा: "+document.getElementById("service").value,"नाम: "+document.getElementById("name").value.trim(),"मोबाइल: "+document.getElementById("phone").value.trim(),document.getElementById("details").value.trim()?"विवरण: "+document.getElementById("details").value.trim():"","कृपया सेवा की उपलब्धता और शुल्क बताएं।"].filter(Boolean).join("\n");window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener")});
-
+function contactEmail(e){
+  e.preventDefault();
+  if(!CONTACT_EMAIL.includes("@")){
+    alert("कृपया सही ईमेल पता जोड़ें।");
+    return false;
+  }
+  window.location.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(CONTACT_EMAIL);
+  return false;
+}
 // DEMO CHECKOUT ONLY: does not connect to a payment provider or charge money.
 const DEMO_PRICES = {
  "आयुष्मान कार्ड": 30,
