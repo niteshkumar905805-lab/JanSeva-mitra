@@ -12,6 +12,22 @@
 .hero{background:linear-gradient(130deg,var(--blue),#1e66a5);color:white;padding:55px 18px}.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:25px;align-items:center}h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:12px 0}.hero p{font-size:18px;color:#eaf3fc}.pill{border:1px solid #aac9e5;border-radius:99px;padding:4px 12px;font-size:13px}.hero-box{background:#ffffff18;border:1px solid #ffffff44;border-radius:18px;padding:20px}.hero-box h2{margin-top:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;border:0;border-radius:9px;padding:10px 15px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:14px}.light{background:white;color:var(--blue)}.green{background:#168a52;color:white}.primary{background:var(--blue);color:white}.outline{border:1px solid var(--line);background:white;color:var(--blue)}
 .container{max-width:1100px;margin:auto;padding:38px 18px}.heading h2{color:var(--blue);font-size:30px;margin:0 0 5px}.heading p,.card p,.panel p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card,.panel,.contact-card{background:white;border:1px solid #e1e8ef;border-radius:15px;padding:20px;box-shadow:0 8px 24px #0928460c}.ico{font-size:26px;background:#e9f2fb;border-radius:12px;width:48px;height:48px;display:grid;place-items:center}.card h3{color:var(--blue);margin:10px 0 4px}.card p{font-size:14px;min-height:48px}.card button{width:100%}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.panel h2{color:var(--blue);margin-top:0}form{display:grid;gap:13px}label{display:block;font-weight:bold;font-size:14px;margin-bottom:4px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}textarea{min-height:90px}.check{display:flex;gap:9px;align-items:flex-start;font-weight:normal}.check input{width:auto;margin-top:6px}.hint{font-size:12px;color:var(--muted)}.notice{background:#fff8e6;border:1px solid #efd79b;border-radius:10px;padding:13px;color:#624b14;font-size:13px}.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.contact-card strong{color:var(--blue)}footer{background:var(--deep);color:#e7eef7;text-align:center;padding:24px 18px}footer p{margin:5px}.small{font-size:12px;color:#c7d5e5}
 @media(max-width:800px){.hero-inner,.twocol{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.grid,.contact-grid{grid-template-columns:1fr}.container{padding:28px 14px}.nav{padding:10px 14px}nav a{font-size:13px;padding:6px}}
+
+/* Demo checkout */
+.paybox{margin-top:18px;background:#f7fbff;border:1px solid #cfe0f2;border-radius:14px;padding:18px}
+.price-line{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:10px 0}
+.price-tag{font-size:24px;font-weight:bold;color:var(--blue)}
+.demo-label{display:inline-block;background:#fff0c2;color:#704d00;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:bold}
+.modal-backdrop{position:fixed;inset:0;background:#061a2bd9;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal-backdrop.show{display:flex}
+.modal{width:min(100%,460px);background:white;border-radius:16px;padding:22px;box-shadow:0 20px 70px #0005}
+.modal h2{margin:0 0 8px;color:var(--blue)}
+.pay-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.pay-option{padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:white;text-align:left;cursor:pointer;font-weight:bold}
+.pay-option.selected{border:2px solid var(--blue);background:#eef6ff}
+.receipt{display:none;margin-top:14px;background:#ecfdf3;border:1px solid #a7e3bf;border-radius:10px;padding:14px;color:#14532d;overflow-wrap:anywhere}
+@media(max-width:520px){.pay-options{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -33,7 +49,27 @@
 <article class="card"><div class="ico">💳</div><h3>APS सेवा</h3><p>APS सेवा की उपलब्धता और प्रक्रिया की जानकारी।</p><button class="btn primary" onclick="chooseService('APS सेवा')">इस सेवा के लिए आवेदन</button></article>
 <article class="card"><div class="ico">🖨️</div><h3>प्रिंटिंग और स्कैनिंग</h3><p>यदि केंद्र पर उपलब्ध हो, तो जानकारी के लिए अनुरोध करें।</p><button class="btn primary" onclick="chooseService('प्रिंटिंग और स्कैनिंग')">इस सेवा के लिए आवेदन</button></article>
 </div></section>
-<section class="container" id="how"><div class="twocol"><div class="panel"><h2>सेवा लेने का तरीका</h2><ol><li>अपनी सेवा चुनें।</li><li>नीचे फ़ॉर्म में संपर्क जानकारी भरें।</li><li>WhatsApp पर अनुरोध भेजें या कॉल करें।</li><li>सेवा, दस्तावेज़ और शुल्क की पुष्टि करें।</li></ol></div><div class="panel"><h2>ऑनलाइन भुगतान</h2><p>भुगतान सुविधा सुरक्षित भुगतान सेवा जुड़ने के बाद सक्रिय होगी। अभी वेबसाइट पर भुगतान नहीं लिया जा रहा है।</p><button class="btn outline" onclick="alert('ऑनलाइन भुगतान अभी सक्रिय नहीं है। कृपया केंद्र से शुल्क और भुगतान तरीका सत्यापित करें।')">भुगतान सुविधा जल्द उपलब्ध होगी</button></div></div></section>
+<section class="container" id="how"><div class="twocol"><div class="panel"><h2>सेवा लेने का तरीका</h2><ol><li>अपनी सेवा चुनें।</li><li>नीचे फ़ॉर्म में संपर्क जानकारी भरें।</li><li>WhatsApp पर अनुरोध भेजें या कॉल करें।</li><li>सेवा, दस्तावेज़ और शुल्क की पुष्टि करें।</li></ol></div><div class="panel"><h2>ऑनलाइन भुगतान टेस्ट</h2>
+<p>यह केवल अभ्यास के लिए डेमो है। इससे असली पैसे नहीं कटेंगे और कोई वास्तविक UPI भुगतान नहीं होगा।</p>
+<div class="paybox">
+<span class="demo-label">DEMO / TEST MODE</span>
+<div style="margin-top:12px"><label for="payService">सेवा चुनें</label>
+<select id="payService" onchange="updateDemoPrice()">
+<option value="आयुष्मान कार्ड">आयुष्मान कार्ड — सहायता</option>
+<option value="PF निकालना">PF निकालना — सहायता</option>
+<option value="PF KYC">PF KYC — सहायता</option>
+<option value="PAN कार्ड बनवाना या अपडेट">PAN कार्ड — सहायता</option>
+<option value="आधार मोबाइल/पता अपडेट">आधार प्रक्रिया की जानकारी</option>
+<option value="वोटर ID कार्ड">वोटर ID — सहायता</option>
+<option value="ई-श्रम कार्ड">ई-श्रम कार्ड — सहायता</option>
+<option value="बैंक खाता खोलना">बैंक खाता — जानकारी</option>
+<option value="APS सेवा">APS सेवा — सहायता</option>
+<option value="प्रिंटिंग और स्कैनिंग">प्रिंटिंग और स्कैनिंग</option>
+</select></div>
+<div class="price-line"><span>डेमो सेवा शुल्क</span><span class="price-tag" id="demoPrice">₹30</span></div>
+<p class="hint">ये सिर्फ उदाहरण के लिए रखे गए टेस्ट रेट हैं, सरकारी शुल्क नहीं। असली शुल्क सेवा और नियमों की पुष्टि के बाद ही तय करें।</p>
+<button class="btn primary" type="button" onclick="openDemoCheckout()">टेस्ट भुगतान करें</button>
+</div></div></div></section>
 <section class="container" id="apply"><div class="twocol"><div><div class="heading"><h2>ऑनलाइन सेवा अनुरोध</h2><p>फ़ॉर्म संदेश तैयार करके WhatsApp में खोलेगा। डेटा वेबसाइट पर सेव नहीं होता।</p></div><div class="notice">सुरक्षा: यहाँ आधार/PAN नंबर, बैंक विवरण, पासवर्ड या OTP न लिखें। संवेदनशील दस्तावेज़ केवल अधिकृत और सुरक्षित प्रक्रिया से दें।</div></div><div class="panel"><form id="requestForm">
 <div><label for="service">कौन-सी सेवा चाहिए? *</label><select id="service" required><option value="">सेवा चुनें</option><option>आयुष्मान कार्ड</option><option>PF निकालना</option><option>PF KYC</option><option>PAN कार्ड बनवाना या अपडेट</option><option>आधार मोबाइल/पता अपडेट</option><option>वोटर ID कार्ड</option><option>ई-श्रम कार्ड</option><option>बैंक खाता खोलना</option><option>APS सेवा</option><option>प्रिंटिंग और स्कैनिंग</option><option>अन्य सेवा</option></select></div>
 <div><label for="name">आपका नाम *</label><input id="name" maxlength="80" required autocomplete="name" placeholder="अपना नाम लिखें"></div>
@@ -43,6 +79,28 @@
 <button class="btn green" type="submit">WhatsApp पर अनुरोध भेजें</button><p class="hint">WhatsApp खुलने पर संदेश जाँचें और खुद Send दबाएँ।</p>
 </form></div></div></section>
 <section class="container" id="contact"><div class="heading"><h2>संपर्क करें</h2><p>नीचे दिए गए placeholder नंबर को अपने सही नंबर से बदलने के बाद कॉल/WhatsApp बटन सक्रिय होंगे।</p></div><div class="contact-grid"><div class="contact-card"><strong>📞 फोन पर बात करें</strong><p>सेवा और शुल्क पूछें।</p><a class="btn primary" href="#" onclick="return contactCall(event)">कॉल करें</a></div><div class="contact-card"><strong>💬 WhatsApp</strong><p>संदेश भेजें।</p><a class="btn green" href="#" onclick="return contactWhatsApp(event)">WhatsApp करें</a></div><div class="contact-card"><strong>✉️ ईमेल</strong><p>ईमेल पता जोड़ने के बाद ईमेल से संपर्क करें।</p><a class="btn outline" href="#" onclick="return contactEmail(event)">ईमेल करें</a></div></div></section>
+
+<div class="modal-backdrop" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+ <div class="modal">
+  <span class="demo-label">DEMO ONLY — REAL PAYMENT OFF</span>
+  <h2 id="demoModalTitle" style="margin-top:12px">टेस्ट चेकआउट</h2>
+  <p id="checkoutSummary">सेवा और डेमो राशि जाँचें।</p>
+  <p><strong>भुगतान का तरीका चुनें (सिर्फ डेमो):</strong></p>
+  <div class="pay-options">
+   <button class="pay-option selected" type="button" data-method="UPI" onclick="selectDemoMethod(this)">📱 UPI / QR</button>
+   <button class="pay-option" type="button" data-method="कार्ड" onclick="selectDemoMethod(this)">💳 कार्ड</button>
+   <button class="pay-option" type="button" data-method="नेट बैंकिंग" onclick="selectDemoMethod(this)">🏦 नेट बैंकिंग</button>
+   <button class="pay-option" type="button" data-method="वॉलेट" onclick="selectDemoMethod(this)">👛 वॉलेट</button>
+  </div>
+  <div class="notice">यह स्क्रीन भुगतान का अभ्यास दिखाती है। इसमें UPI ऐप नहीं खुलेगा, QR नहीं बनेगा और कोई पैसा नहीं कटेगा।</div>
+  <div class="actions">
+   <button class="btn green" type="button" onclick="simulateDemoPayment()">टेस्ट सफल दिखाएँ</button>
+   <button class="btn outline" type="button" onclick="closeDemoCheckout()">बंद करें</button>
+  </div>
+  <div class="receipt" id="demoReceipt" aria-live="polite"></div>
+ </div>
+</div>
+
 </main>
 <footer><p><strong>TechSathi JanSeva Kendra</strong></p><p>आपका डिजिटल सेवा साथी</p><p class="small">यह स्वतंत्र सहायता वेबसाइट है, किसी सरकारी विभाग की आधिकारिक वेबसाइट नहीं। सरकारी सेवाओं की पात्रता, शुल्क और उपलब्धता संबंधित अधिकृत विभाग से सत्यापित करें।</p><p class="small">© <span id="year"></span> TechSathi JanSeva Kendra</p></footer>
 <script>
@@ -58,6 +116,53 @@ function contactCall(e){e.preventDefault();if(!phoneReady()){alert("कॉल �
 function contactWhatsApp(e){e.preventDefault();if(!waReady()){alert("WhatsApp चालू करने के लिए WHATSAPP_NUMBER में देश कोड सहित अपना नंबर डालें।");return false}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("नमस्ते, मुझे TechSathi JanSeva Kendra की सेवाओं की जानकारी चाहिए।"),"_blank","noopener");return false}
 function contactEmail(e){e.preventDefault();if(!CONTACT_EMAIL.includes("@")){alert("ईमेल चालू करने के लिए CONTACT_EMAIL में अपना ईमेल पता डालें।");return false}location.href="mailto:"+CONTACT_EMAIL;return false}
 document.getElementById("requestForm").addEventListener("submit",function(e){e.preventDefault();if(!this.reportValidity())return;if(!waReady()){alert("फ़ॉर्म तैयार है, लेकिन अनुरोध भेजने के लिए पहले WHATSAPP_NUMBER में अपना सही नंबर डालना होगा। अभी जानकारी कहीं सेव नहीं हुई है।");return}const msg=["नमस्ते, मुझे TechSathi JanSeva Kendra से सेवा चाहिए।","सेवा: "+document.getElementById("service").value,"नाम: "+document.getElementById("name").value.trim(),"मोबाइल: "+document.getElementById("phone").value.trim(),document.getElementById("details").value.trim()?"विवरण: "+document.getElementById("details").value.trim():"","कृपया सेवा की उपलब्धता और शुल्क बताएं।"].filter(Boolean).join("\n");window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener")});
+
+// DEMO CHECKOUT ONLY: does not connect to a payment provider or charge money.
+const DEMO_PRICES = {
+ "आयुष्मान कार्ड": 30,
+ "PF निकालना": 49,
+ "PF KYC": 39,
+ "PAN कार्ड बनवाना या अपडेट": 49,
+ "आधार मोबाइल/पता अपडेट": 30,
+ "वोटर ID कार्ड": 30,
+ "ई-श्रम कार्ड": 25,
+ "बैंक खाता खोलना": 30,
+ "APS सेवा": 49,
+ "प्रिंटिंग और स्कैनिंग": 10
+};
+let demoMethod = "UPI";
+function updateDemoPrice(){
+ const s = document.getElementById("payService").value;
+ document.getElementById("demoPrice").textContent = "₹" + (DEMO_PRICES[s] || 30);
+}
+function openDemoCheckout(){
+ const s = document.getElementById("payService").value;
+ document.getElementById("checkoutSummary").textContent =
+   "सेवा: " + s + " | डेमो राशि: ₹" + (DEMO_PRICES[s] || 30);
+ document.getElementById("demoReceipt").style.display = "none";
+ document.getElementById("demoModal").classList.add("show");
+}
+function closeDemoCheckout(){document.getElementById("demoModal").classList.remove("show");}
+function selectDemoMethod(btn){
+ document.querySelectorAll(".pay-option").forEach(x=>x.classList.remove("selected"));
+ btn.classList.add("selected");
+ demoMethod = btn.dataset.method;
+}
+function simulateDemoPayment(){
+ const s = document.getElementById("payService").value;
+ const amount = DEMO_PRICES[s] || 30;
+ const ref = "TEST-" + Math.random().toString(36).slice(2,8).toUpperCase();
+ const receipt = document.getElementById("demoReceipt");
+ receipt.innerHTML = "<strong>✓ डेमो टेस्ट सफल!</strong><br>" +
+   "सेवा: " + s + "<br>डेमो राशि: ₹" + amount +
+   "<br>तरीका: " + demoMethod + "<br>टेस्ट रेफरेंस: " + ref +
+   "<br><strong>ध्यान दें:</strong> यह असली भुगतान की रसीद नहीं है। कोई पैसा नहीं कटा।";
+ receipt.style.display = "block";
+}
+document.getElementById("demoModal").addEventListener("click", function(e){
+ if(e.target === this) closeDemoCheckout();
+});
+
 </script>
 </body>
 </html>
